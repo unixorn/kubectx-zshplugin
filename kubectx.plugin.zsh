@@ -7,5 +7,5 @@ KUBECTX_DIR="$(dirname $0)/kubectx"
 export PATH=${PATH}:${KUBECTX_DIR}
 
 # Load completions
-source "${KUBECTX_DIR}/kubectx/completion/kubectx.zsh"
-source "${KUBECTX_DIR}/kubectx/completion/kubens.zsh"
+source "${KUBECTX_DIR}/completion/kubectx.zsh"
+source "${KUBECTX_DIR}/completion/kubens.zsh"
