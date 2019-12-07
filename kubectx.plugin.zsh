@@ -6,6 +6,13 @@
 KUBECTX_DIR="$(dirname $0)/kubectx"
 export PATH=${PATH}:${KUBECTX_DIR}
 
+if [[ ! -f "${KUBECTX_DIR}/completion/kubectx.zsh" ]]; then
+  pushd "$KUBECTX_DIR"
+  git submodule init
+  git submodule update
+  popd
+fi
+
 # Load completions
 source "${KUBECTX_DIR}/completion/kubectx.zsh"
 source "${KUBECTX_DIR}/completion/kubens.zsh"
