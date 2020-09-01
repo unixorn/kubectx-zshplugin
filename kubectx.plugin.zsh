@@ -21,9 +21,10 @@ function loadCompletions()
     mkdir -p ${COMPLETION_DIR}
     chmod -R 755 ${COMPLETION_DIR}
   fi
-  ZSH_COMPLETION_FILE="${OH_MY_ZSH_DIR}/completions/_kubectx.zsh"
+  ZSH_COMPLETION_FILE="${COMPLETION_DIR}/_kubectx.zsh"
   if [ ! -f ${ZSH_COMPLETION_FILE} ]; then # Check if zsh completion file exists
     ln -s ${KUBECTX_DIR}/completion/kubectx.zsh ${ZSH_COMPLETION_FILE}
+    ln -s ${KUBECTX_DIR}/completion/kubens.zsh ${COMPLETION_DIR}/_kubens.zsh
   fi
 }
 
