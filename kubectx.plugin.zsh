@@ -4,6 +4,7 @@
 # oh-my-zsh compatible plugins.
 
 KUBECTX_DIR="$(dirname $0)/kubectx"
+OH_MY_ZSH_DIR="$(dirname $0)/../../.."
 export PATH=${PATH}:${KUBECTX_DIR}
 
 if [[ ! -f "${KUBECTX_DIR}/completion/kubectx.zsh" ]]; then
@@ -13,6 +14,18 @@ if [[ ! -f "${KUBECTX_DIR}/completion/kubectx.zsh" ]]; then
   popd
 fi
 
+function loadCompletions()
+{
+  COMPLETION_DIR="${OH_MY_ZSH_DIR}/completions"
+  if [ ! -d ${COMPLETION_DIR} ]; then # Check if completion directory exists
+    mkdir -p ${COMPLETION_DIR}
+    chmod -R 755 ${COMPLETION_DIR}
+  fi
+  ZSH_COMPLETION_FILE="${OH_MY_ZSH_DIR}/completions/_kubectx.zsh"
+  if [ ! -f ${ZSH_COMPLETION_FILE} ]; then # Check if zsh completion file exists
+    ln -s ${KUBECTX_DIR}/completion/kubectx.zsh ${ZSH_COMPLETION_FILE}
+  fi
+}
+
 # Load completions
-source "${KUBECTX_DIR}/completion/kubectx.zsh"
-source "${KUBECTX_DIR}/completion/kubens.zsh"
+loadCompletions
