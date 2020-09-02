@@ -4,9 +4,10 @@
 # oh-my-zsh compatible plugins.
 
 KUBECTX_DIR="$(dirname $0)/kubectx"
+COMPLETION_DIR="${KUBECTX_DIR}/completion"
 export PATH=${PATH}:${KUBECTX_DIR}
 
-if [[ ! -f "${KUBECTX_DIR}/completion/kubectx.zsh" ]]; then
+if [[ ! -f "${COMPLETION_DIR}/kubectx.zsh" ]]; then
   pushd "$KUBECTX_DIR"
   git submodule init
   git submodule update
@@ -14,5 +15,4 @@ if [[ ! -f "${KUBECTX_DIR}/completion/kubectx.zsh" ]]; then
 fi
 
 # Load completions
-source "${KUBECTX_DIR}/completion/kubectx.zsh"
-source "${KUBECTX_DIR}/completion/kubens.zsh"
+fpath=($COMPLETION_DIR $fpath)
