@@ -7,7 +7,7 @@ KUBECTX_DIR="$(dirname $0)/kubectx"
 COMPLETION_DIR="${KUBECTX_DIR}/completion"
 export PATH=${PATH}:${KUBECTX_DIR}
 
-if [[ ! -f "${COMPLETION_DIR}/kubectx.zsh" ]]; then
+if [[ ! -f "${COMPLETION_DIR}/_kubectx.zsh" ]]; then
   pushd "$KUBECTX_DIR"
   git submodule init
   git submodule update
