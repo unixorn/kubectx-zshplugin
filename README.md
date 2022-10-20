@@ -31,11 +31,12 @@ If you're using [oh-my-zsh](github.com/robbyrussell/oh-my-zsh):
     `cd ~/.oh-my-zsh/custom/plugins/`
 
 2. Clone the repository into a new `kubectx` directory:
-
-    `git clone --recursive https://github.com/unixorn/kubectx-zshplugin.git kubectx`
-    `cd ~/.oh-my-zsh/custom/plugins/kubectx/`
-    `git submodule init`
-    `git submodule update`
+    ```
+    git clone --recursive https://github.com/unixorn/kubectx-zshplugin.git kubectx
+    cd ~/.oh-my-zsh/custom/plugins/kubectx/
+    git submodule init
+    git submodule update
+    ```
 
 3. Edit your `~/.zshrc` and add `kubectx` – same as clone directory – to the list of plugins to enable:
 
